@@ -15,18 +15,9 @@ yTest <- read.csv("UCI HAR Dataset/test/y_test.txt", sep = "", header = F)
 ## Which subject had been used for Test ?
 subjectTest <- read.csv("UCI HAR Dataset/test/subject_test.txt", sep = " ", header = F)
 
-unique(subjectTest$V1)
-## These subjects are in the Test set
-## [1]  2  4  9 10 12 13 18 20 24
-
 
 ## Which subjects had been used for Training ?
 subjectTrain <- read.csv("UCI HAR Dataset/train/subject_train.txt", sep = " ", header = F)
-
-unique(subjectTrain$V1)
-
-## They are in the Training set, non-overrapping 
-## [1]  1  3  5  6  7  8 11 14 15 16 17 19 21 22 23 25 26 27 28 29 30
 
 
 ## Create the list of all the feature names
@@ -34,7 +25,7 @@ features <- read.csv("UCI HAR Dataset/features.txt", sep = " ", header = F)
 featureNames <- append(as.character(features$V2), c("activity", "subject"))
 
 
-## Merging Data Step 1
+## Creating the Merged Data Step 1
 ## Merge measurement values, activity, and subject labels
 
 testActivity <- cbind(test, yTest)
@@ -46,14 +37,14 @@ trainFinal <- cbind(trainActivity, subjectTrain)
 ## Merging the train and the test data, resulting 10299 observations of 563 variables
 allData <- rbind(testFinal, trainFinal)
 
-
-## add column names to the merged data set
+## Creating the Merged Data step2
+## Add column names to the merged data set
 colnames(allData) <- featureNames
 
-
+## Creating the Merged Data set Step 3 - Adding and Formatting the column names
 
 ## Getting the feature names that have something to do with mean and std
-## selecting 86 column names
+## selecting 79 column names
 subFeatures <- features[grep("mean()|std()", features$V2),]
 
 ## selecting the columns for mean and std, plus the activity and the subject label   
@@ -82,4 +73,5 @@ colnames(subsetData) <- renameCol
 meltData <- melt(subsetData, id=c("subject", "activity"), measure.vars=renameCol[1:79])
 castData <- dcast(meltData, subject + activity ~ variable, mean)
 
-write.csv(castData, "tidy.csv")
+## Dimension of the final data set is 180 rows and 81 columns
+write.csv(castData, "tidy.txt")
