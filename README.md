@@ -1,12 +1,24 @@
 ## Getting and Clearning Data Coursera
 ### Course Project 
 
-run_analysis.R produces an output file, tidy.txt, containing the tidy data set required by the project instructions, in the working directory.
-The Data set has the dimension of 180 rows, 81 columns.
+
+#### List of the Files
+
+*	tidy.txt
+	The output file containing the tidy data set per the specifications
+	The Data set has the dimension of 180 rows, 81 columns.
+
+* 	run_analysis.R
+	R script that produces the tidy.txt
+	It writes tidy.txt, in the working directory.
+
+*	CODE_BOOK.md
+	Explains the features in the tidy.txt
+
 
 The Samsung Data set should be stored in "UCI HAR Dataset" directory under the working directory in order for the script to work.
 
-## The process
+#### The process
 
 1. Read X_train and X_test 
 2. Read activity labels (y_train and x_train) and subjects (subject_train and subject_test)
