@@ -30,6 +30,11 @@ The Samsung Data set should be stored in "UCI HAR Dataset" directory under the w
 
 Select the entire scripts and run from the R console.
 
+The original Data set was obtained from the [link] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) provided on Getting and Cleaning Data course site on Coursera.
+
+This [site] (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) provides more information about the data set and how they are obtained. 
+
+
 
 
 
